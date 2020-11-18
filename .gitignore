@@ -1,0 +1,6 @@
+#Virtual environment
+Pipfile
+Pipfile.lock
+.vscode
+
+__PYCACHE__
