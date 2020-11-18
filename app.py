@@ -37,7 +37,7 @@ def refresh_long_lived_access_token(long_lived_access_token):
     """
     API Endpoint =  https://graph.instagram.com/refresh_access_token?grant_type=ig_refresh_token&access_token={long-lived-access-token}
     """
-    exchange_url =  f"https://graph.facebook.com/refresh_access_token?grant_type=ig_refresh_token&access_token={long_lived_access_token}"
+    exchange_url =  f"https://graph.instagram.com/refresh_access_token?grant_type=ig_refresh_token&access_token={long_lived_access_token}"
     response = requests.get(exchange_url)
     
     return response.json()
