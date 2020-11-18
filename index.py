@@ -1,4 +1,6 @@
 import streamlit as st
+from app import debug_access_token, refresh_long_lived_access_token, exchange_token
+import time
 
 
 st.title("TripScout App")
@@ -11,11 +13,18 @@ choice = st.selectbox("Select activity", activity)
 # 1. Debug token: input access token, display token debug details
 if choice == "Debug token":
     st.subheader("Debug token")
-    debug_token = st.text_input("Enter debug token")
-    if st.button("Submit"):
-        result = debug_token.title()
-        st.success("Token have been received")
+    access_token = st.text_input("Enter debug token")
 
+    if st.button("Submit"):
+        result = access_token.title()
+
+        try:
+            response = debug_access_token(access_token)
+            st.subheader("Data result:")
+            st.write(response)
+        except Exception as e:
+            print(e)
+            
 
 #2. Exchange initial token: inputs client_id, client_secret, access_token and debug, display new token and debug
 if choice == "Exchange initial token":
@@ -24,24 +33,29 @@ if choice == "Exchange initial token":
     client_id = st.text_input("Client ID")
     client_secret = st.text_input("Client secret")
     access_t = st.text_input("Insert your access token")
-    debug_t = st.text_input("Insert your debug token") 
 
     if st.button("Send to exchange"):
-        st.success("This data have been sent")
-        st.write("Client id:",client_id)
-        st.write("Secret id:",client_secret)
-        st.write("Access Token:",access_t)
-        st.write("Debug token:",debug_t)
 
+        try:
+            response = exchange_token(client_id, client_secret, access_t)
+            st.subheader("Data result:")
+            st.write(response)
+        except Exception as e:
+            print(e)
 
 # 3. Exchange long-lived token: inputs access_token and debug, display new token and debug
 if choice == "Exchange long-lived token":
     st.subheader("Exchange long-lived token")
 
     long_access = st.text_input("Insert token")
-    long_debug = st.text_input("Insert debug token") 
 
     if st.button("Exchange to Long Live Token"):
-        st.success("This data have been sent")
-        st.write("Access Token:",long_access)
-        st.write("Debug token:",long_debug)
+
+        try:
+            response = refresh_long_lived_access_token(long_access)
+            st.subheader("Data result:")
+            st.write(response)
+        except Exception as e:
+            print(e)
+
+

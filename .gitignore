@@ -2,3 +2,5 @@
 Pipfile
 Pipfile.lock
 .vscode
+
+__PYCACHE__

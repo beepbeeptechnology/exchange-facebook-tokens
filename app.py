@@ -1,6 +1,6 @@
 import pprint
 import requests
-import streamlit as st
+#import streamlit as st
 from datetime import datetime
 
 
@@ -23,7 +23,7 @@ def get_token_expiry_dates(debug_response):
     return token_dates
 
 
-def exchange_token(api_version, client_id, client_secret, access_token):
+def exchange_token(client_id, client_secret, access_token, api_version='v8.0'):
     """
     API Endpoint =  https://graph.facebook.com/{graph-api-version}/oauth/access_token?grant_type=fb_exchange_token&client_id={app-id}&client_secret={app-secret}&fb_exchange_token={your-access-token}
     """
