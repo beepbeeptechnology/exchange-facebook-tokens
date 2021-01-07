@@ -41,7 +41,7 @@ if st.checkbox("Exchange access token"):
         st.subheader("Data result:")
         st.write(response)
 
-st.markdown('_Please note that no data is retained by this streamlit app_')        
+st.markdown('_Please note that no data is retained by this app_')        
 st.markdown("> [![View Source on GitHub](https://assets.website-files.com/5eb1d49f3ed8c28a5a54769f/5eb7085ea11928da1d01a2d7_Github%20Icon.svg)](https://github.com/beepbeeptechnology/exchange-facebook-tokens) View Source on GitHub ([beepbeep.technology](https://beepbeep.technology))")
 
 
