@@ -4,8 +4,8 @@ from datetime import datetime, date
 import time
 
 
-st.title("TripScout App")
-st.subheader("Exchange Facebook Token")
+st.title("Facebook Token Tool")
+st.subheader("Exchange or Debug Facebook Access Tokens")
 
 
 # 1. Debug token: input access token, display token debug details
@@ -39,4 +39,7 @@ if st.checkbox("Exchange initial token"):
         response = exchange_token(client_id, client_secret, access_t)
         st.subheader("Data result:")
         st.write(response)
+
+st.markdown("> [![View Source on GitHub](https://assets.website-files.com/5eb1d49f3ed8c28a5a54769f/5eb7085ea11928da1d01a2d7_Github%20Icon.svg)](https://github.com/beepbeeptechnology/exchange-facebook-tokens) View Source on GitHub ([beepbeep.technology](https://beepbeep.technology))")
+
 
