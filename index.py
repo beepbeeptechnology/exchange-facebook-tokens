@@ -5,7 +5,7 @@ import time
 
 
 st.title("Facebook Token Tool")
-st.subheader("Exchange or Debug Facebook Access Tokens")
+st.subheader("Debug or Exchange Facebook Access Tokens")
 st.markdown('---')
 
 
@@ -14,7 +14,7 @@ if st.checkbox("Debug token"):
     st.subheader("Debug access token")
     access_token = st.text_input("Access token")
 
-    if st.button("Submit"):
+    if st.button("Debug"):
         result = access_token.title()
         response = debug_access_token(access_token)
         data_access_expires_at = datetime.fromtimestamp(response['data']['data_access_expires_at'])
@@ -35,7 +35,7 @@ if st.checkbox("Exchange access token"):
     client_secret = st.text_input("App Secret")
     access_t = st.text_input("Access Token")
 
-    if st.button("Send to exchange"):
+    if st.button("Exchange"):
 
         response = exchange_token(client_id, client_secret, access_t)
         st.subheader("Data result:")
