@@ -6,12 +6,13 @@ import time
 
 st.title("Facebook Token Tool")
 st.subheader("Exchange or Debug Facebook Access Tokens")
+st.markdown('---')
 
 
 # 1. Debug token: input access token, display token debug details
 if st.checkbox("Debug token"):
-    st.subheader("Check the debug token")
-    access_token = st.text_input("Enter debug token")
+    st.subheader("Debug access token")
+    access_token = st.text_input("Access token")
 
     if st.button("Submit"):
         result = access_token.title()
@@ -27,12 +28,12 @@ if st.checkbox("Debug token"):
             
 
 #2. Exchange initial token: inputs client_id, client_secret, access_token and debug, display new token and debug
-if st.checkbox("Exchange initial token"):
-    st.subheader("Exchange initial token")
-
-    client_id = st.text_input("Client ID")
-    client_secret = st.text_input("Client secret")
-    access_t = st.text_input("Insert your access token")
+if st.checkbox("Exchange access token"):
+    st.subheader("Exchange access token")
+    st.markdown('_App ID and App Secret can be found in the Basic Settings in your Facebook App Dashboard_')        
+    client_id = st.text_input("App ID")
+    client_secret = st.text_input("App Secret")
+    access_t = st.text_input("Access Token")
 
     if st.button("Send to exchange"):
 
@@ -40,6 +41,7 @@ if st.checkbox("Exchange initial token"):
         st.subheader("Data result:")
         st.write(response)
 
+st.markdown('_Please note that no data is retained by this streamlit app_')        
 st.markdown("> [![View Source on GitHub](https://assets.website-files.com/5eb1d49f3ed8c28a5a54769f/5eb7085ea11928da1d01a2d7_Github%20Icon.svg)](https://github.com/beepbeeptechnology/exchange-facebook-tokens) View Source on GitHub ([beepbeep.technology](https://beepbeep.technology))")
 
 
